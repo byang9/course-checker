@@ -11,9 +11,10 @@ from email.mime.text import MIMEText
 
 found = False
 schoolUrls = {"GT":"https://oscar.gatech.edu/pls/bprod/bwckschd.p_disp_detail_sched?term_in=201902&crn_in="}
+cred = json.load(open('credentials.json'))  # Credentials
+
 
 def reminder(body):
-    cred = json.load(open('credentials.json'))  # Credentials
     if cred['gmail'] != '' and cred['gmailPass'] != '':
         msg = MIMEText(body)
         msg['Subject'] = 'CourseChecker - Course available'
@@ -46,7 +47,9 @@ def fromGT(crn=''):
 
 
 if __name__=='__main__':
-    ping,maxPing,totalSeconds = 0,3,0
+    maxPing,crn = cred['maxPing'],cred['crn']
+
+    ping,totalSeconds = 0,0
 
     while (ping < maxPing):
         m,s = divmod(totalSeconds,60)
