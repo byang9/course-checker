@@ -1,0 +1,6 @@
+#IntelliJ files
+.idea/*
+
+#Don't upload credentials
+credentials.json
+
