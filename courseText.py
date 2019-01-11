@@ -55,7 +55,7 @@ if __name__=='__main__':
         h,m = divmod(m,60)
         slot = fromGT(crn)
         print("[%d:%02d:%02d] {}".format("Slot open!!" if slot else "N/A") % (h, m, s))
-        randSec = random.randint(4,7) # Randomly waits between 4 and 7 seconds
+        randSec = random.randint(40,70) # Randomly waits between 40 and 70 seconds
         time.sleep(randSec)
         ping +=1
         totalSeconds += randSec
