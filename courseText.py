@@ -48,13 +48,12 @@ def fromGT(crn=''):
 
 if __name__=='__main__':
     maxPing,crn = cred['maxPing'],cred['crn']
-
     ping,totalSeconds = 0,0
 
     while (ping < maxPing):
         m,s = divmod(totalSeconds,60)
         h,m = divmod(m,60)
-        slot = fromGT('31562')
+        slot = fromGT(crn)
         print("[%d:%02d:%02d] {}".format("Slot open!!" if slot else "N/A") % (h, m, s))
         randSec = random.randint(4,7) # Randomly waits between 4 and 7 seconds
         time.sleep(randSec)
